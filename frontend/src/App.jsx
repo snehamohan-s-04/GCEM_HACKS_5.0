@@ -8,8 +8,10 @@ import TopHeader from './components/TopHeader';
 import Toast from './components/Toast';
 import IncidentModal from './components/IncidentModal';
 import Overview from './pages/Overview';
+import Incidents from './pages/Incidents';
+import Services from './pages/Services';
 
-import { initialIncidents, services, kpiData, simulatedIncident } from './data/mockData';
+import { initialIncidents, resolvedIncidents, services, kpiData, simulatedIncident } from './data/mockData';
 
 // Stub pages for non-overview routes
 function StubPage({ title }) {
@@ -76,8 +78,21 @@ export default function App() {
             simulated={simulated}
           />
         );
-      case 'incidents':   return <StubPage title="Incidents" />;
-      case 'services':    return <StubPage title="Services" />;
+      case 'incidents':
+        return (
+          <Incidents
+            incidents={[...incidents, ...resolvedIncidents]}
+            services={services}
+            onSelectIncident={handleInvestigate}
+          />
+        );
+      case 'services':
+        return (
+          <Services
+            services={services}
+            incidents={[...incidents, ...resolvedIncidents]}
+          />
+        );
       case 'infra':       return <StubPage title="Infrastructure" />;
       case 'ai-analysis': return <StubPage title="AI Analysis" />;
       case 'history':     return <StubPage title="Incident History" />;

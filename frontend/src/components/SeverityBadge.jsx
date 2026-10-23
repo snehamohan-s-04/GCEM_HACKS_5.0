@@ -6,12 +6,16 @@ const CONFIG = {
   info:     'bg-brand-blue/15        text-brand-blue        border-brand-blue/30',
 };
 
-export default function SeverityBadge({ severity, className = '' }) {
+export default function SeverityBadge({
+  severity,
+  label = severity === 'normal' ? 'Healthy' : severity,
+  className = '',
+}) {
   const style = CONFIG[severity] || CONFIG.info;
   return (
     <span className={`inline-flex items-center px-2 py-0.5 rounded-md border text-[10px] font-bold uppercase tracking-wider ${style} ${className}`}>
       {severity === 'critical' && <span className="w-1.5 h-1.5 rounded-full bg-severity-critical mr-1 status-pulse" />}
-      {severity}
+      {label}
     </span>
   );
 }

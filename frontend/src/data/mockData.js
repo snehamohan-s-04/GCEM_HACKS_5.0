@@ -104,6 +104,36 @@ export const initialIncidents = [
   },
 ];
 
+export const resolvedIncidents = [
+  {
+    id: 'INC-004',
+    service: 'API Gateway',
+    serviceId: 'api-gateway',
+    severity: 'normal',
+    status: 'resolved',
+    detectedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+    errorRate: 0.4,
+    latency: 128,
+    recentDeployment: false,
+    deploymentAgo: null,
+    logs: 'WARN: upstream request timeout rate exceeded threshold\nINFO: retry budget adjusted\nINFO: request latency returned to baseline',
+    rootCause: 'Transient upstream timeout spike',
+    explanation:
+      'A short-lived increase in upstream response times caused a small number of gateway requests to exceed their timeout. The service has returned to its normal operating range.',
+    recommendedAction:
+      'Continue monitoring upstream latency and retain the updated retry budget. Revisit the upstream service timeout if the pattern returns.',
+    aiConfidence: 88,
+    timeline: [
+      { id: 't1', step: 'Incident detected', time: '11:12:04', done: true },
+      { id: 't2', step: 'Metrics analyzed', time: '11:12:08', done: true },
+      { id: 't3', step: 'Logs correlated', time: '11:12:12', done: true },
+      { id: 't4', step: 'AI root cause identified', time: '11:12:17', done: true },
+      { id: 't5', step: 'Resolution recommended', time: '11:14:02', done: true },
+      { id: 't6', step: 'Resolution executed', time: '11:17:36', done: true },
+    ],
+  },
+];
+
 // Chart time-series mock
 const now = Date.now();
 export const errorRateData = Array.from({ length: 20 }, (_, i) => ({
