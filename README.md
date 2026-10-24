@@ -281,7 +281,7 @@ GCEM_HACKS_5.0/
 ├── backend/
 │   ├── app/
 │   │   └── main.py
-│   ├── .env
+│   ├── .env.example
 │   └── ...
 │
 ├── frontend/
@@ -491,7 +491,7 @@ SmartOps AI currently demonstrates the core AI-assisted incident resolution work
 
 ## Phase 1 — AI-Assisted Operations
 
-- Incident detection
+- Incident simulation and management
 - Gemini-powered RCA
 - Explainable recommendations
 - Human approval workflow
