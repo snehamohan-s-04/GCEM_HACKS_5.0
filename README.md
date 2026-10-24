@@ -321,7 +321,7 @@ Make sure you have the following installed:
 ## 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/snehamohan-s-04/GCEM_HACKS_5.0.git
 cd GCEM_HACKS_5.0
 ```
 
